@@ -10,11 +10,18 @@ export default function Navbar() {
                     <Menu.Item name="Star Wars API"></Menu.Item>
                 </Link>
                 <Link to='/people'>
-                    <Menu.Item name="people"></Menu.Item>
+                    <Menu.Item name="personagens"></Menu.Item>
                 </Link>
                 <Link to='/starships'>
-                    <Menu.Item name="starships"></Menu.Item>
+                    <Menu.Item name="naves"></Menu.Item>
                 </Link>
+                <Link to='/signin'>
+                    <Menu.Item name="entrar"></Menu.Item>
+                </Link>
+                <Link to='/signup'>
+                    <Menu.Item name="registrar"></Menu.Item>
+                </Link>
+                
 
             </Container>
         </Menu>

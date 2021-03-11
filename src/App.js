@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from "./components/Navbar";
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
 import {Container, Dimmer, Loader} from 'semantic-ui-react';
 import Home from "./components/Home";
 import People from "./components/People";
 import Starships from "./components/Starships";
+import { isAuthenticated } from "./services/auth";
+import SignIn from "./pages/signin/index";
+import SignUp from "./pages/signup/index";
+import GlobalStyle from './styles/global';
 
 function App() {
   const [people, setPeople] = useState([]);
@@ -32,10 +36,35 @@ function App() {
 
   },[]);
 
+  const PrivateRoute = ({ component: Component, ...rest }) => (
+    <Route
+      {...rest}
+      render={props =>
+        isAuthenticated() ? (
+          <Component {...props} />
+        ) : (
+          <Redirect to={{ pathname: "/", state: { from: props.location } }} />
+        )
+      }
+    />
+  );
+  
+  const BrowserRouter = () => (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={() => <h1>Login</h1>} />
+        <Route path="/signup" component={SignUp} />
+        <PrivateRoute path="/app" component={() => <h1>App</h1>} />
+        <Route path="*" component={() => <h1>Page not found</h1>} />
+      </Switch>
+    </BrowserRouter>
+  );
+
 
   return (
     <div className='App'>
       <Router>
+      <GlobalStyle />
       <Navbar />
       <Container>
         {loading ? (
@@ -52,6 +81,11 @@ function App() {
           <Route exact path='/starships'>
             <Starships data={starships}/>
           </Route>
+          
+          <Route path="/signin" component={SignIn} />
+          <Route path="/signup" component={SignUp} />
+            
+         
         </Switch>)}
         
       </Container>
