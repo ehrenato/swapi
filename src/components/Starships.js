@@ -19,18 +19,7 @@ export default function Starships({data}) {
                                        
                                         <strong>Modelo</strong>
                                         <p>{starships.model}</p>
-                                        <strong>Fabricante</strong>
-                                        <p>{starships.manufacturer}</p>
-                                        <strong>Custo</strong>
-                                        <p>{starships.cost_in_credits}</p>
-                                        <strong>Tamanho</strong>
-                                        <p>{starships.length}</p>
-                                        <strong>Velocidade</strong>
-                                        <p>{starships.max_atmosphering_speed}</p>
-                                        <strong>Capacidade</strong>
-                                        <p>{starships.crew}</p>
-                                        <strong>Passageiros</strong>
-                                        <p>{starships.passengers}</p>
+                                        
                                         <button type="button">Detalhes</button>
                                         </Card.Description>
                                 </Card.Content>

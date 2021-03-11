@@ -5,6 +5,7 @@ import {Container, Dimmer, Loader} from 'semantic-ui-react';
 import Home from "./components/Home";
 import People from "./components/People";
 import Starships from "./components/Starships";
+import Details from "./components/Details";
 import { isAuthenticated } from "./services/auth";
 import SignIn from "./pages/signin/index";
 import SignUp from "./pages/signup/index";
@@ -13,6 +14,7 @@ import GlobalStyle from './styles/global';
 function App() {
   const [people, setPeople] = useState([]);
   const [starships, setStarships] = useState([]);
+  const [details, setDetails] = useState([]);
   const [loading, setLoading] = useState([]);
 
   useEffect(() => {
@@ -30,8 +32,16 @@ function App() {
       setLoading(false);
     }
 
+    async function fetchDetails(){
+      let res = await fetch('https://swapi.dev/api/starships/?format=json');
+      let data = await res.json();
+      setDetails(data.results);
+      setLoading(false);
+    }
+
     fetchPeople();
     fetchStarships();
+    fetchDetails();
   
 
   },[]);
@@ -80,6 +90,9 @@ function App() {
           </Route>
           <Route exact path='/starships'>
             <Starships data={starships}/>
+          </Route>
+          <Route exact path='/details'>
+            <Details data={details}/>
           </Route>
           
           <Route path="/signin" component={SignIn} />

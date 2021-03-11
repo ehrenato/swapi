@@ -1,6 +1,19 @@
 .App {
   text-align: center;
-  background-image: url('./assets/ceu-estrelado.png');
+  
+}
+
+.home {
+padding-top:30%;
+flex-direction: row!important;
+justify-content: center!important;
+align-items: center!important;
+font-size: 200%;
+color: yellow;
+}
+
+.bem{
+  font-size: 200%;
 }
 
 .App-logo {
