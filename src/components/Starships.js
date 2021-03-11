@@ -1,5 +1,7 @@
 import React from 'react';
 import {Card, Grid} from 'semantic-ui-react';
+import {Link } from 'react-router-dom';
+import { Menu } from 'semantic-ui-react';
 
 export default function Starships({data}) {
     return (
@@ -19,8 +21,11 @@ export default function Starships({data}) {
                                        
                                         <strong>Modelo</strong>
                                         <p>{starships.model}</p>
+                                        <Link to='/details'>
+                                          <Menu.Item name="detalhes"></Menu.Item>
+                                        </Link>
                                         
-                                        <button type="button">Detalhes</button>
+                                        
                                         </Card.Description>
                                 </Card.Content>
                             </Card>

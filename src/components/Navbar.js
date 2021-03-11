@@ -18,9 +18,7 @@ export default function Navbar() {
                 <Link to='/signin'>
                     <Menu.Item name="entrar"></Menu.Item>
                 </Link>
-                <Link to='/signup'>
-                    <Menu.Item name="registrar"></Menu.Item>
-                </Link>
+              
                 
 
             </Container>
