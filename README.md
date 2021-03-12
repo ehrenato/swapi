@@ -1,3 +1,8 @@
+1 - Clonar repositório
+2 - npm install
+3 - npm start
+
+
 README.md
 Segue as orientações para realização do teste de desenvolvimento web:
 
