@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../teste/src/App.css';
+import '../styles/App.css';
 
 export default function Home() {
     return (
